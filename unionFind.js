@@ -10,6 +10,10 @@ class unionFind {
   find(p) {
     let root = p
     while (parent[root] !== root) {
+      root = parent[root]
+    }
+    // 压缩路径
+    while (parent[p] !== p) {
       let x = p
       p = this.parent[p]
       this.parent[x] = root
@@ -18,6 +22,10 @@ class unionFind {
   }
 
   union(p, q) {
+    let rootP = find(p)
+    let rootQ = find(q)
+    if (rootP === rootQ) return
+    this.parent[rootP] = rootQ
     this.count--
   }
 }
