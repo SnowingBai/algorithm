@@ -15,6 +15,8 @@ function heapSort(arr) {
     // 对 0 ~ i 的数组建堆
     heapify(arr, i, 0)
   }
+
+  return arr
 }
 
 function heapify(arr, len, i) {
